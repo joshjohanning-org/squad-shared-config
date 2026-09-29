@@ -1,6 +1,9 @@
-# squad-shared-config
+# squad-shared-decisions
 
-A sample **shared [Squad](https://github.com/bradygaster/squad) configuration** that any repository can inherit using `squad upstream`, so teams don't have to copy or zip `.squad/` folders around.
+**Approach A demo** from [joshjohanning-org/squad-copilot-plugins](https://github.com/joshjohanning-org/squad-copilot-plugins): a sample set of **shared [Squad](https://github.com/bradygaster/squad) decisions and rules** that any repository can inherit read-only using `squad upstream`, so teams don't have to copy or zip `.squad/` folders around.
+
+> [!IMPORTANT]
+> This shares decisions, routing, wisdom, casting policy, and skills. It does **not** share agents, charters, or the team roster (`squad upstream` doesn't read them). For a shared starter team, see **Approach B** (`squad-starter-team` plugin) in the same marketplace.
 
 > [!NOTE]
 > This is a proof of concept. Squad is alpha software and its commands may change.
@@ -21,26 +24,26 @@ These are the files Squad's upstream resolver reads. Project-specific state (tea
 
 ### Option 1: Copilot CLI plugin (recommended)
 
-Install the `squad-setup` plugin from [joshjohanning-org/squad-copilot-plugins](https://github.com/joshjohanning-org/squad-copilot-plugins):
+Install the `squad-shared-decisions` plugin from [joshjohanning-org/squad-copilot-plugins](https://github.com/joshjohanning-org/squad-copilot-plugins):
 
 ```bash
 copilot plugin marketplace add joshjohanning-org/squad-copilot-plugins
-copilot plugin install squad-setup@squad-copilot-plugins
+copilot plugin install squad-shared-decisions@squad-copilot-plugins
 ```
 
-Then, in your repository, start Copilot CLI and run `/init-shared-squad` (or ask "set up the shared squad").
+Then, in your repository, start Copilot CLI and run `/link-shared-decisions` (or ask "link this repo to the shared squad decisions").
 
 ### Option 2: Squad CLI directly
 
 ```bash
 squad init   # if the repository doesn't have .squad/ yet
-squad upstream add https://github.com/joshjohanning-org/squad-shared-config.git --name shared --ref main
+squad upstream add https://github.com/joshjohanning-org/squad-shared-decisions.git --name shared --ref main
 squad upstream sync
 ```
 
 Commit `.squad/upstream.json`. The cached clone in `.squad/_upstream_repos/` is gitignored automatically; teammates run `squad upstream sync` after cloning.
 
-## Update the shared config
+## Update the shared decisions
 
 1. Open a pull request to this repository.
 2. After it merges, consumers run `squad upstream sync` and start a new session.
