@@ -1,0 +1,17 @@
+{
+  "casting_policy_version": "1.2",
+  "allow_custom_universes": false,
+  "default_naming": "descriptive",
+  "allowlist_universes": [
+    "Star Wars",
+    "The Matrix",
+    "Firefly",
+    "Futurama"
+  ],
+  "universe_capacity": {
+    "Star Wars": 12,
+    "The Matrix": 10,
+    "Firefly": 10,
+    "Futurama": 12
+  }
+}
